@@ -5,7 +5,15 @@ import Lenis from 'lenis'
 
 export default function SmoothScroll() {
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return
+    }
+
+    // Mobile-la native touch scrolling use pannuvom.
+    // Desktop-la mattum Lenis smooth scrolling.
+    if (window.matchMedia('(pointer: coarse)').matches) {
+      return
+    }
 
     const lenis = new Lenis({
       duration: 1.1,
@@ -36,7 +44,7 @@ export default function SmoothScroll() {
       }
 
       const link = (e.target as Element | null)?.closest?.(
-        'a[href^="#"]'
+        'a[href^="#"]',
       ) as HTMLAnchorElement | null
 
       const hash = link?.getAttribute('href')

@@ -105,16 +105,16 @@ export function useElementPointer(
 
     let rect = el.getBoundingClientRect()
 
+    const measure = () => {
+      rect = el.getBoundingClientRect()
+    }
+
     let tx = 0
     let ty = 0
     let cx = 0
     let cy = 0
     let frame = 0
     let running = false
-
-    const measure = () => {
-      rect = el.getBoundingClientRect()
-    }
 
     const tick = () => {
       cx += (tx - cx) * 0.08
@@ -140,7 +140,8 @@ export function useElementPointer(
       frame = requestAnimationFrame(tick)
     }
 
-    const clamp = (n: number) => Math.max(-1, Math.min(1, n))
+    const clamp = (n: number) =>
+      Math.max(-1, Math.min(1, n))
 
     const onMove = (e: PointerEvent) => {
       const mx = rect.left + rect.width / 2
@@ -173,8 +174,6 @@ export function useElementPointer(
     window.addEventListener('resize', measure, {
       passive: true,
     })
-
-    document.addEventListener('pointerleave', onLeave)
 
     return () => {
       window.removeEventListener('pointermove', onMove)
