@@ -82,6 +82,12 @@ export const site = {
         rotation: 3, drop: 7, shade: 0.3, skew: -0.3, indent: 1,
         objectPosition: '50% 50%', href: "https://github.com/imraan-n23/Projects/tree/f896d7414ba5653727642ec36688bb3fab9fde90/Excel%20Projects/Personal%20Finance%20%26%20Expense%20Analytics%20Dashboard",
       },
+      {
+        quote: 'Invoice Processing & Accounts Analytics Automation',
+        author: 'n8n • Data Analytics • Finance & Accounting',
+        rotation: -3, drop: 5, shade: 0.35, skew: -0.4, indent: 1,
+        objectPosition: '50% 50%', href: "https://github.com/imraan-n23/Projects/tree/eeb853962cd639c7ee947fa1f6e1c24d47961421/N8N%20Projects/Invoice%20Processing%20%26%20Accounts%20Analytics%20Automation%20using%20n8n",
+      },
     ],
   },
 

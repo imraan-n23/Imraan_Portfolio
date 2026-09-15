@@ -28,6 +28,7 @@ export const assets = {
     '/assets/projects/project-03.webp',
     '/assets/projects/project-04.webp',
     '/assets/projects/project-05.webp',
+    '/assets/projects/project-06.webp',
   ] as (string | null)[],
 
   signature: null as string | null,
