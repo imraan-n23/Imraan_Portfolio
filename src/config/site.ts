@@ -141,6 +141,11 @@ export const site = {
       provider: 'DataCamp',
       href: '/assets/certificates/SQL Intermediate.pdf',
     },
+    {
+      name: 'N8N Course No Code AI Agent Builder',
+      provider: 'Simplilearn',
+      href: '/assets/certificates/N8N Course No Code AI Agent Builder.pdf',
+    },
   ],
 },
 
