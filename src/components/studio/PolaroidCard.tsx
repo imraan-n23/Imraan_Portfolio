@@ -9,19 +9,15 @@ import PolaroidCaption from './PolaroidCaption'
 export type Polaroid = {
   quote: string
   author: string
-  
+
   rotation: number
-  
   drop: number
-  
   shade: number
-  
   skew: number
-  
   indent: number
+
   src?: string | null
   objectPosition?: string
-  
   href?: string | null
 }
 
@@ -32,9 +28,15 @@ type Props = {
   onOpen: (index: number) => void
 }
 
-export default function PolaroidCard({ item, index, variants, onOpen }: Props) {
+export default function PolaroidCard({
+  item,
+  index,
+  variants,
+  onOpen,
+}: Props) {
   const reduced = usePrefersReducedMotion()
   const place = useRef<HTMLDivElement>(null)
+
   useElementPointer(place, !reduced)
 
   const inner = (
@@ -45,6 +47,7 @@ export default function PolaroidCard({ item, index, variants, onOpen }: Props) {
         index={index}
         objectPosition={item.objectPosition}
       />
+
       <PolaroidCaption
         quote={item.quote}
         author={item.author}
@@ -55,12 +58,25 @@ export default function PolaroidCard({ item, index, variants, onOpen }: Props) {
   )
 
   return (
-    
-    <div className="polaroid-slot" style={{ transform: `translateY(${item.drop}%)` }}>
-      <motion.div ref={place} className="polaroid-place" variants={variants} custom={index}>
+    <div
+      className="polaroid-slot"
+      style={{
+        transform: `translateY(${item.drop}%)`,
+      }}
+    >
+      <motion.div
+        ref={place}
+        className="polaroid-place"
+        variants={variants}
+        custom={index}
+      >
         <div className="polaroid-tilt">
           {item.href ? (
-            <a href={item.href} className="polaroid-card block" style={cardVars(item)}>
+            <a
+              href={item.href}
+              className="polaroid-card block"
+              style={cardVars(item)}
+            >
               {inner}
             </a>
           ) : (

@@ -21,26 +21,45 @@ export default function StudioSection() {
 
   const group: Variants = {
     hidden: {},
-    show: { transition: { delayChildren: reduced ? 0 : 0.05 } },
+    show: {
+      transition: {
+        delayChildren: reduced ? 0 : 0.05,
+      },
+    },
   }
 
   const title: Variants = {
-    hidden: { opacity: 0, y: 18 },
+    hidden: {
+      opacity: 0,
+      y: 18,
+    },
     show: {
       opacity: 1,
       y: 0,
-      transition: reduced ? { duration: 0 } : { duration: 0.9, ease: ease.paper },
+      transition: reduced
+        ? { duration: 0 }
+        : {
+            duration: 0.9,
+            ease: ease.paper,
+          },
     },
   }
 
   const card: Variants = {
-    hidden: { opacity: 0, y: 26 },
+    hidden: {
+      opacity: 0,
+      y: 16,
+    },
     show: (i: number) => ({
       opacity: 1,
       y: 0,
       transition: reduced
         ? { duration: 0 }
-        : { duration: 1.05, delay: 0.28 + i * 0.16, ease: ease.paper },
+        : {
+            duration: 0.65,
+            delay: 0.12 + i * 0.08,
+            ease: ease.paper,
+          },
     }),
   }
 
@@ -57,17 +76,29 @@ export default function StudioSection() {
         whileInView="show"
         viewport={viewportOnce}
       >
-        <StudioTitle text={site.studio.heading} variants={title} />
+        <StudioTitle
+          text={site.studio.heading}
+          variants={title}
+        />
 
-        {}
         <div className="studio-row">
           {items.map((item, i) => (
-            <PolaroidCard key={item.quote} item={item} index={i} variants={card} onOpen={setOpen} />
+            <PolaroidCard
+              key={item.quote}
+              item={item}
+              index={i}
+              variants={card}
+              onOpen={setOpen}
+            />
           ))}
         </div>
       </motion.div>
 
-      <Lightbox items={items} open={open} onClose={() => setOpen(null)} />
+      <Lightbox
+        items={items}
+        open={open}
+        onClose={() => setOpen(null)}
+      />
     </section>
   )
 }
